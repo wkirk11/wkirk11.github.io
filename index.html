@@ -12,6 +12,7 @@
       padding: 40px;
       background-color: #fff;
       overflow-x: hidden;
+      position: relative;
     }
 
     .content-wrapper {
@@ -41,7 +42,7 @@
     }
 
     .leaf-button img {
-      max-height: 380px; /* Enlarged from 280px */
+      max-height: 280px; /* Reduced from 380px */
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -51,23 +52,29 @@
     }
 
     .corner-button {
-      position: fixed;
-      bottom: 20px;
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
       z-index: 1000;
       cursor: pointer;
     }
 
     .clematis-button {
-      left: 20px;
+      /* Removed float properties */
     }
 
     .mystery-button {
-      right: 20px;
+      /* Removed float properties */
     }
 
     .corner-button img {
-      height: 180px; /* Enlarged from 140px */
+      height: 140px;
       transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      max-height: 140px;
     }
 
     .corner-button img:hover {
@@ -112,6 +119,29 @@
       height: auto;
       margin-top: 20px;
     }
+
+    .button-label {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #444;
+      margin-bottom: 0;
+    }
+
+    .corner-button-label {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1em;
+      color: #444;
+      margin-bottom: 0;
+      white-space: nowrap;
+    }
+
+    .corner-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
@@ -125,39 +155,33 @@
       </p>
 
       <h2>Contact</h2>
-<p>Resume / CV: <a href="https://wkirk11.github.io/Weston_Kirk_CV.pdf" target="_blank">View my CV (PDF)</a></p>
+<p>Resume / CV: <a href="https://wkirk11.github.io/wk_resume_august_2025.pdf" target="_blank">View my CV (PDF)</a></p>
 <p>Email: <a href="mailto:wkirk@stanford.edu">wkirk@stanford.edu</a></p>
 <p>LinkedIn: <a href="https://www.linkedin.com/in/weston-kirk-5a880a244" target="_blank">weston-kirk-5a880a244</a></p>
       
 
-      <div class="message-container">
-        <p id="treeMessage" class="hover-message">
-          <em>Cotinus obovatus</em> branch &rarr; Projects
-        </p>
-        <p id="futureMessage" class="hover-message">
-          <em>Matelea reticulata</em> flower &rarr; Research / Future Work
-        </p>
-        <p id="clematisMessage" class="hover-message">
-          <em>Clematis texensis</em> seeds &rarr; About Me
-        </p>
-      </div>
+      <!-- Removed the overlapping labels from here -->
     </div>
 
     <div class="leaf-button">
       <a href="projects.html" target="_blank">
         <img id="treeImage" src="smoke_tree_branch.png" alt="Enter site via leaf image" />
       </a>
+      <p class="button-label">Projects</p>
     </div>
   </div>
 
   <!-- Corner Buttons -->
-  <a class="corner-button clematis-button" href="clematis.html" title="Explore the Clematis">
-    <img id="clematisImage" src="clematis_seeds.png" alt="Clematis Button">
-  </a>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; flex-wrap: wrap;">
+    <a class="corner-button clematis-button" href="clematis.html" title="Explore the Clematis">
+      <img id="clematisImage" src="clematis_seeds.png" alt="Clematis Button">
+      <p class="corner-button-label">About Me</p>
+    </a>
 
-  <a class="corner-button mystery-button" href="future.html" title="Future Work">
-    <img id="mysteryImage" src="milkweed_vine_bloom_2.png" alt="Mystery Button">
-  </a>
-
+    <a class="corner-button mystery-button" href="future.html" title="Future Work">
+      <img id="mysteryImage" src="milkweed_vine_bloom_2.png" alt="Mystery Button">
+      <p class="corner-button-label">Research / Future Work</p>
+    </a>
+  </div>
 </body>
 </html>
