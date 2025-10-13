@@ -21,12 +21,10 @@
 
       /* background image, continuous, no fades/boxes */
       background: url('background.png') center top / cover no-repeat fixed;
-
-      /* FORCE VISIBLE TEXT BY DEFAULT */
-      color: #111;          /* dark text */
+      color: #111; /* default (overridden by .theme-white below) */
     }
 
-    /* Make sure content and buttons sit ABOVE the background */
+    /* Ensure content and buttons sit ABOVE the background */
     .content-wrapper, .bottom-bar { position: relative; z-index: 10; }
 
     /* --- TOP CONTENT --- */
@@ -41,9 +39,9 @@
     h1, h2 { margin: 0 0 12px; color: inherit; }
     p { margin: 0 0 12px; }
 
-    /* Readability without a box (very subtle shadow only) */
+    /* Readability without any white box */
     h1, h2, p, a, .corner-button-label, .button-label {
-      text-shadow: 0 1px 1px rgba(255,255,255,0.45);
+      text-shadow: 0 1px 1px rgba(255,255,255,0.0); /* neutral; overridden for theme */
     }
 
     a { color: #0a3ab9; text-decoration: none; }
@@ -59,7 +57,7 @@
     }
     .leaf-button img:hover { transform: scale(1.05); }
     .button-label, .corner-button-label {
-      text-align: center; margin-top: 10px; font-size: 1em; color: #111; white-space: nowrap;
+      text-align: center; margin-top: 10px; font-size: 1em; color: inherit; white-space: nowrap;
     }
 
     /* --- BOTTOM FIXED BUTTONS (no fade) --- */
@@ -71,6 +69,7 @@
       display: flex; justify-content: space-between; align-items: flex-end;
       background: transparent;          /* no gradient/fade */
       z-index: 2000;                    /* stay above everything */
+      pointer-events: auto;
     }
     .bottom-bar .buttons {
       width: 100%;
@@ -90,17 +89,21 @@
     }
     .corner-button img:hover { transform: rotate(10deg) scale(1.1); }
 
-    /* --- OPTIONAL: quick toggle to a light-on-dark look
-       Add class="theme-white" to <body> to enable (see note below) --- */
-    .theme-white { color: #f6fbff; }
-    .theme-white h1, .theme-white h2, .theme-white p, .theme-white a,
-    .theme-white .corner-button-label, .theme-white .button-label {
-      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+    /* --- LIGHT TEXT THEME (white text + black shadow) --- */
+    .theme-white { color: #ffffff; }
+    .theme-white h1,
+    .theme-white h2,
+    .theme-white p,
+    .theme-white a,
+    .theme-white .corner-button-label,
+    .theme-white .button-label {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45); /* soft black shadow for readability */
     }
-    .theme-white a { color: #e6f0ff; }
+    .theme-white a { color: #e6f0ff; }          /* readable link color on sky */
+    .theme-white a:hover { text-decoration: underline; }
   </style>
 </head>
-<body>
+<body class="theme-white">
   <div class="content-wrapper">
     <div class="text-content">
       <h1>Weston Kirk</h1>
