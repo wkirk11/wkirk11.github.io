@@ -5,7 +5,7 @@
   <title>Weston Kirk</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <style>
-    :root { --bottom-bar-h: 200px; }            /* default height for the fixed bottom bar */
+    :root { --bottom-bar-h: 200px; }
     @media (max-height: 700px) { :root { --bottom-bar-h: 160px; } }
     @media (max-height: 520px) { :root { --bottom-bar-h: 130px; } }
 
@@ -14,11 +14,17 @@
       font-size: 1.5em;
       margin: 0;
       padding: 40px;
-      /* make room so content never sits under the fixed bottom buttons */
       padding-bottom: calc(var(--bottom-bar-h) + 20px);
-      background-color: #fff;
       overflow-x: hidden;
       position: relative;
+
+      /* Background image setup */
+      background-image: url('background.png');
+      background-size: cover;            /* scales to fill */
+      background-position: center top;   /* anchors at top center */
+      background-repeat: no-repeat;
+      background-attachment: fixed;      /* stays fixed while scrolling */
+      color: #222;
     }
 
     .content-wrapper {
@@ -26,6 +32,9 @@
       justify-content: space-between;
       align-items: flex-start;
       position: relative;
+      background: rgba(255, 255, 255, 0.85); /* subtle readability layer */
+      padding: 20px;
+      border-radius: 16px;
     }
 
     .text-content {
@@ -48,7 +57,7 @@
     }
 
     .leaf-button img {
-      max-height: 280px; /* Reduced from 380px */
+      max-height: 280px;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -67,13 +76,9 @@
       cursor: pointer;
     }
 
-    .clematis-button { /* kept */ }
-    .mystery-button { /* kept */ }
-
     .corner-button img {
       max-width: 100%;
       height: auto;
-      /* scale images to fit inside the bar on short viewports */
       max-height: min(140px, calc(var(--bottom-bar-h) - 40px));
       transition: transform 0.3s ease;
     }
@@ -82,55 +87,15 @@
       transform: rotate(10deg) scale(1.1);
     }
 
-    @keyframes fadeInTop {
-      0% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .hover-message {
-      font-size: 1.1em;
-      color: #444;
-      margin-bottom: 12px;
-      opacity: 0;
-      animation: fadeInTop 0.8s ease forwards;
-    }
-
-    #treeMessage { animation-delay: 0s; }
-    #futureMessage { animation-delay: 1s; }
-    #clematisMessage { animation-delay: 2s; }
-
-    .message-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      height: auto;
-      margin-top: 20px;
-    }
-
-    .button-label {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 1.1em;
-      color: #444;
-      margin-bottom: 0;
-    }
-
-    .corner-button-label {
+    .button-label, .corner-button-label {
       text-align: center;
       margin-top: 10px;
       font-size: 1em;
-      color: #444;
+      color: #333;
       margin-bottom: 0;
       white-space: nowrap;
     }
 
-    .corner-button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* ===== Fixed bottom bar for the two buttons ===== */
     .bottom-bar {
       position: fixed;
       left: 0;
@@ -141,13 +106,11 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      /* subtle fade so it feels integrated; keeps text readable if scrolled behind */
-      background: linear-gradient(to top, rgba(255,255,255,0.96), rgba(255,255,255,0));
+      background: linear-gradient(to top, rgba(255,255,255,0.92), rgba(255,255,255,0));
       z-index: 2000;
       pointer-events: auto;
     }
 
-    /* Wrap for layout if you want to tweak later */
     .bottom-bar .buttons {
       width: 100%;
       display: flex;
@@ -181,7 +144,6 @@
     </div>
   </div>
 
-  <!-- Fixed Bottom Buttons -->
   <div class="bottom-bar">
     <div class="buttons">
       <a class="corner-button clematis-button" href="clematis.html" title="Explore the Clematis">
