@@ -5,11 +5,17 @@
   <title>Weston Kirk</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <style>
+    :root { --bottom-bar-h: 200px; }            /* default height for the fixed bottom bar */
+    @media (max-height: 700px) { :root { --bottom-bar-h: 160px; } }
+    @media (max-height: 520px) { :root { --bottom-bar-h: 130px; } }
+
     body {
       font-family: 'Lora', serif;
       font-size: 1.5em;
       margin: 0;
       padding: 40px;
+      /* make room so content never sits under the fixed bottom buttons */
+      padding-bottom: calc(var(--bottom-bar-h) + 20px);
       background-color: #fff;
       overflow-x: hidden;
       position: relative;
@@ -61,20 +67,15 @@
       cursor: pointer;
     }
 
-    .clematis-button {
-      /* Removed float properties */
-    }
-
-    .mystery-button {
-      /* Removed float properties */
-    }
+    .clematis-button { /* kept */ }
+    .mystery-button { /* kept */ }
 
     .corner-button img {
-      height: 140px;
-      transition: transform 0.3s ease;
       max-width: 100%;
       height: auto;
-      max-height: 140px;
+      /* scale images to fit inside the bar on short viewports */
+      max-height: min(140px, calc(var(--bottom-bar-h) - 40px));
+      transition: transform 0.3s ease;
     }
 
     .corner-button img:hover {
@@ -82,14 +83,8 @@
     }
 
     @keyframes fadeInTop {
-      0% {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .hover-message {
@@ -100,17 +95,9 @@
       animation: fadeInTop 0.8s ease forwards;
     }
 
-    #treeMessage {
-      animation-delay: 0s;
-    }
-
-    #futureMessage {
-      animation-delay: 1s;
-    }
-
-    #clematisMessage {
-      animation-delay: 2s;
-    }
+    #treeMessage { animation-delay: 0s; }
+    #futureMessage { animation-delay: 1s; }
+    #clematisMessage { animation-delay: 2s; }
 
     .message-container {
       display: flex;
@@ -142,6 +129,33 @@
       flex-direction: column;
       align-items: center;
     }
+
+    /* ===== Fixed bottom bar for the two buttons ===== */
+    .bottom-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: var(--bottom-bar-h);
+      padding: 0 40px 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      /* subtle fade so it feels integrated; keeps text readable if scrolled behind */
+      background: linear-gradient(to top, rgba(255,255,255,0.96), rgba(255,255,255,0));
+      z-index: 2000;
+      pointer-events: auto;
+    }
+
+    /* Wrap for layout if you want to tweak later */
+    .bottom-bar .buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: nowrap;
+      gap: 24px;
+    }
   </style>
 </head>
 <body>
@@ -154,12 +168,9 @@
       </p>
 
       <h2>Contact</h2>
-<p>Resume / CV: <a href="https://wkirk11.github.io/wk_resume_august_2025.pdf" target="_blank">View my CV (PDF)</a></p>
-<p>Email: <a href="mailto:wkirk@stanford.edu">wkirk@stanford.edu</a></p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/weston-kirk-5a880a244" target="_blank">weston-kirk-5a880a244</a></p>
-      
-
-      <!-- Removed the overlapping labels from here -->
+      <p>Resume / CV: <a href="https://wkirk11.github.io/wk_resume_august_2025.pdf" target="_blank">View my CV (PDF)</a></p>
+      <p>Email: <a href="mailto:wkirk@stanford.edu">wkirk@stanford.edu</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/weston-kirk-5a880a244" target="_blank">weston-kirk-5a880a244</a></p>
     </div>
 
     <div class="leaf-button">
@@ -170,17 +181,19 @@
     </div>
   </div>
 
-  <!-- Corner Buttons -->
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; flex-wrap: wrap;">
-    <a class="corner-button clematis-button" href="clematis.html" title="Explore the Clematis">
-      <img id="clematisImage" src="clematis_seeds.png" alt="Clematis Button">
-      <p class="corner-button-label">About Me</p>
-    </a>
+  <!-- Fixed Bottom Buttons -->
+  <div class="bottom-bar">
+    <div class="buttons">
+      <a class="corner-button clematis-button" href="clematis.html" title="Explore the Clematis">
+        <img id="clematisImage" src="clematis_seeds.png" alt="Clematis Button">
+        <p class="corner-button-label">About Me</p>
+      </a>
 
-    <a class="corner-button mystery-button" href="future.html" title="Future Work">
-      <img id="mysteryImage" src="milkweed_vine_bloom_2.png" alt="Mystery Button">
-      <p class="corner-button-label">Research / Future Work</p>
-    </a>
+      <a class="corner-button mystery-button" href="future.html" title="Future Work">
+        <img id="mysteryImage" src="milkweed_vine_bloom_2.png" alt="Mystery Button">
+        <p class="corner-button-label">Research / Future Work</p>
+      </a>
+    </div>
   </div>
 </body>
 </html>
