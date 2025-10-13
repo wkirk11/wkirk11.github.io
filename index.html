@@ -5,18 +5,28 @@
   <title>Weston Kirk</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet" />
   <style>
-    :root { --bottom-bar-h: 200px; }
-    @media (max-height: 700px) { :root { --bottom-bar-h: 160px; } }
-    @media (max-height: 520px) { :root { --bottom-bar-h: 130px; } }
+    /* --- SAFE AREAS --- */
+    :root {
+      --top-bar-h: 120px;
+      --bottom-bar-h: 200px;
+    }
+    @media (max-height: 700px) {
+      :root { --top-bar-h: 100px; --bottom-bar-h: 160px; }
+    }
+    @media (max-height: 520px) {
+      :root { --top-bar-h: 80px; --bottom-bar-h: 130px; }
+    }
 
     /* --- PAGE BACKGROUND --- */
     html, body { height: 100%; }
+    html { scroll-padding-top: var(--top-bar-h); } /* keep hash links below top safe area */
+
     body {
       font-family: 'Lora', serif;
       font-size: 1.5em;
       margin: 0;
-      padding: 40px;
-      padding-bottom: calc(var(--bottom-bar-h) + 20px); /* space for fixed buttons */
+      /* top | right/left | bottom  */
+      padding: calc(var(--top-bar-h) + 20px) 40px calc(var(--bottom-bar-h) + 20px);
       overflow-x: hidden;
 
       /* background image, continuous, no fades/boxes */
