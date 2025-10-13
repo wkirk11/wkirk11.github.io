@@ -8,41 +8,51 @@
     font-size: 1.5em;
     margin: 0;
     padding: 40px;
-    /* keeps content from sitting under fixed bottom buttons */
     padding-bottom: calc(var(--bottom-bar-h) + 20px);
     overflow-x: hidden;
     position: relative;
 
-    /* Background image */
+    /* Background */
     background-image: url('background.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #222;                      /* <— see note below about going white */
+    color: #222;
   }
 
-  /* Top content sits directly on the background (no white panel) */
+  /* Bring content back above background */
+  .content-wrapper, .bottom-bar {
+    position: relative;
+    z-index: 10;
+  }
+
   .content-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    position: relative;
-    background: transparent;          /* no box */
+    background: transparent;
     padding: 0;
-    border-radius: 0;
   }
 
-  .text-content { max-width: 50%; text-align: left; }
+  .text-content {
+    max-width: 50%;
+    text-align: left;
+  }
 
-  h1, h2 { color: inherit; margin-top: 0; }
+  h1, h2 {
+    color: #222;
+    margin-top: 0;
+  }
 
-  /* Light, unobtrusive lift for readability on sky */
-  h1, h2, p, a { text-shadow: 0 1px 2px rgba(255,255,255,0.55); }
+  p, a {
+    color: #222;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+  }
 
-  a { color: #1a0dab; text-decoration: none; }
   a:hover { text-decoration: underline; }
 
+  /* Project leaf */
   .leaf-button img {
     max-height: 280px;
     cursor: pointer;
@@ -50,6 +60,7 @@
   }
   .leaf-button img:hover { transform: scale(1.05); }
 
+  /* Bottom buttons */
   .corner-button {
     position: static;
     display: flex;
@@ -66,31 +77,34 @@
     max-height: min(140px, calc(var(--bottom-bar-h) - 40px));
     transition: transform 0.3s ease;
   }
+
   .corner-button img:hover { transform: rotate(10deg) scale(1.1); }
 
   .button-label, .corner-button-label {
     text-align: center;
     margin-top: 10px;
     font-size: 1em;
-    color: #333;
+    color: #222;
     margin-bottom: 0;
     white-space: nowrap;
-    text-shadow: 0 1px 2px rgba(255,255,255,0.55);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.6);
   }
 
-  /* Fixed bottom bar — no fade now, keeps previous functionality */
+  /* Fixed bottom bar — keep functionality, remove fade */
   .bottom-bar {
     position: fixed;
-    left: 0; right: 0; bottom: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: var(--bottom-bar-h);
     padding: 0 40px 12px 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    background: transparent;          /* <— removed gradient fade */
+    background: transparent; /* no fade */
     z-index: 2000;
-    pointer-events: auto;
   }
+
   .bottom-bar .buttons {
     width: 100%;
     display: flex;
