@@ -1,116 +1,141 @@
-<style>
-  :root { --bottom-bar-h: 200px; }
-  @media (max-height: 700px) { :root { --bottom-bar-h: 160px; } }
-  @media (max-height: 520px) { :root { --bottom-bar-h: 130px; } }
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Weston Kirk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bottom-bar-h: 200px; }
+    @media (max-height: 700px) { :root { --bottom-bar-h: 160px; } }
+    @media (max-height: 520px) { :root { --bottom-bar-h: 130px; } }
 
-  body {
-    font-family: 'Lora', serif;
-    font-size: 1.5em;
-    margin: 0;
-    padding: 40px;
-    padding-bottom: calc(var(--bottom-bar-h) + 20px);
-    overflow-x: hidden;
-    position: relative;
+    /* --- PAGE BACKGROUND --- */
+    html, body { height: 100%; }
+    body {
+      font-family: 'Lora', serif;
+      font-size: 1.5em;
+      margin: 0;
+      padding: 40px;
+      padding-bottom: calc(var(--bottom-bar-h) + 20px); /* space for fixed buttons */
+      overflow-x: hidden;
 
-    /* Background */
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #222;
-  }
+      /* background image, continuous, no fades/boxes */
+      background: url('background.png') center top / cover no-repeat fixed;
 
-  /* Bring content back above background */
-  .content-wrapper, .bottom-bar {
-    position: relative;
-    z-index: 10;
-  }
+      /* FORCE VISIBLE TEXT BY DEFAULT */
+      color: #111;          /* dark text */
+    }
 
-  .content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: transparent;
-    padding: 0;
-  }
+    /* Make sure content and buttons sit ABOVE the background */
+    .content-wrapper, .bottom-bar { position: relative; z-index: 10; }
 
-  .text-content {
-    max-width: 50%;
-    text-align: left;
-  }
+    /* --- TOP CONTENT --- */
+    .content-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
 
-  h1, h2 {
-    color: #222;
-    margin-top: 0;
-  }
+    .text-content { max-width: 50%; text-align: left; }
+    h1, h2 { margin: 0 0 12px; color: inherit; }
+    p { margin: 0 0 12px; }
 
-  p, a {
-    color: #222;
-    text-shadow: 0 1px 2px rgba(255,255,255,0.6);
-  }
+    /* Readability without a box (very subtle shadow only) */
+    h1, h2, p, a, .corner-button-label, .button-label {
+      text-shadow: 0 1px 1px rgba(255,255,255,0.45);
+    }
 
-  a:hover { text-decoration: underline; }
+    a { color: #0a3ab9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-  /* Project leaf */
-  .leaf-button img {
-    max-height: 280px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  .leaf-button img:hover { transform: scale(1.05); }
+    /* --- PROJECT IMAGE BUTTON --- */
+    .leaf-button img {
+      max-height: 280px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      display: block;
+    }
+    .leaf-button img:hover { transform: scale(1.05); }
+    .button-label, .corner-button-label {
+      text-align: center; margin-top: 10px; font-size: 1em; color: #111; white-space: nowrap;
+    }
 
-  /* Bottom buttons */
-  .corner-button {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    z-index: 1000;
-    cursor: pointer;
-  }
+    /* --- BOTTOM FIXED BUTTONS (no fade) --- */
+    .bottom-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      height: var(--bottom-bar-h);
+      padding: 0 40px 12px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      background: transparent;          /* no gradient/fade */
+      z-index: 2000;                    /* stay above everything */
+    }
+    .bottom-bar .buttons {
+      width: 100%;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 24px; flex-wrap: nowrap;
+    }
 
-  .corner-button img {
-    max-width: 100%;
-    height: auto;
-    max-height: min(140px, calc(var(--bottom-bar-h) - 40px));
-    transition: transform 0.3s ease;
-  }
+    .corner-button {
+      display: flex; flex-direction: column; align-items: center;
+      margin: 10px; cursor: pointer;
+    }
+    .corner-button img {
+      max-width: 100%; height: auto;
+      max-height: min(140px, calc(var(--bottom-bar-h) - 40px));
+      transition: transform 0.3s ease;
+      display: block;
+    }
+    .corner-button img:hover { transform: rotate(10deg) scale(1.1); }
 
-  .corner-button img:hover { transform: rotate(10deg) scale(1.1); }
+    /* --- OPTIONAL: quick toggle to a light-on-dark look
+       Add class="theme-white" to <body> to enable (see note below) --- */
+    .theme-white { color: #f6fbff; }
+    .theme-white h1, .theme-white h2, .theme-white p, .theme-white a,
+    .theme-white .corner-button-label, .theme-white .button-label {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+    }
+    .theme-white a { color: #e6f0ff; }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <div class="text-content">
+      <h1>Weston Kirk</h1>
+      <p>
+        I'm an undergraduate at Stanford studying Earth Systems, Math, and Computer Science.
+        Currently, I work in the STAIR Lab as an undergraduate researcher.
+      </p>
 
-  .button-label, .corner-button-label {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 1em;
-    color: #222;
-    margin-bottom: 0;
-    white-space: nowrap;
-    text-shadow: 0 1px 2px rgba(255,255,255,0.6);
-  }
+      <h2>Contact</h2>
+      <p>Resume / CV: <a href="https://wkirk11.github.io/wk_resume_august_2025.pdf" target="_blank">View my CV (PDF)</a></p>
+      <p>Email: <a href="mailto:wkirk@stanford.edu">wkirk@stanford.edu</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/weston-kirk-5a880a244" target="_blank">weston-kirk-5a880a244</a></p>
+    </div>
 
-  /* Fixed bottom bar — keep functionality, remove fade */
-  .bottom-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: var(--bottom-bar-h);
-    padding: 0 40px 12px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    background: transparent; /* no fade */
-    z-index: 2000;
-  }
+    <div class="leaf-button">
+      <a href="projects.html" target="_blank">
+        <img id="treeImage" src="smoke_tree_branch.png" alt="Enter site via leaf image" />
+      </a>
+      <p class="button-label">Projects</p>
+    </div>
+  </div>
 
-  .bottom-bar .buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: nowrap;
-    gap: 24px;
-  }
-</style>
+  <!-- Fixed Bottom Buttons -->
+  <div class="bottom-bar">
+    <div class="buttons">
+      <a class="corner-button clematis-button" href="clematis.html" title="Explore the Clematis">
+        <img id="clematisImage" src="clematis_seeds.png" alt="Clematis Button" />
+        <p class="corner-button-label">About Me</p>
+      </a>
+
+      <a class="corner-button mystery-button" href="future.html" title="Future Work">
+        <img id="mysteryImage" src="milkweed_vine_bloom_2.png" alt="Mystery Button" />
+        <p class="corner-button-label">Research / Future Work</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
