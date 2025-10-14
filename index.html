@@ -5,26 +5,29 @@
   <title>Weston Kirk</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet" />
   <style>
-    :root { --bottom-bar-h: 200px; }
+    /* --- Responsive bottom bar size --- */
+    :root { --bottom-bar-h: 200px; }                  /* default */
     @media (max-height: 700px) { :root { --bottom-bar-h: 160px; } }
     @media (max-height: 520px) { :root { --bottom-bar-h: 130px; } }
+    @media (max-height: 420px) { :root { --bottom-bar-h: 110px; } } /* new */
+    @media (max-height: 360px) { :root { --bottom-bar-h: 90px; } }   /* new */
 
     /* --- PAGE BACKGROUND --- */
-    html, body { 
-      min-height: 100%; /* ✅ allows scroll without clipping */
-    }
-    * {
-      box-sizing: border-box;
-    }
+    html, body { min-height: 100%; } /* prevent top clipping on scroll */
+    * { box-sizing: border-box; }
+
     body {
       font-family: 'Lora', serif;
       font-size: 1.5em;
       margin: 0;
-      padding: 40px 40px calc(var(--bottom-bar-h) + 20px);
+
+      /* Reserve space for fixed bottom bar + safe area */
+      padding: 40px 40px calc(var(--bottom-bar-h) + env(safe-area-inset-bottom, 0px) + 20px);
+
       overflow-x: hidden;
 
-      /* background image, continuous, no fades/boxes */
-      background: url('background.png') center top / cover no-repeat; /* ✅ removed fixed to stop clipping on scroll */
+      /* background image, continuous, no parallax clipping issues */
+      background: url('background.png') center top / cover no-repeat;
       color: #111; /* default (overridden by .theme-white below) */
     }
 
@@ -34,7 +37,7 @@
     /* --- TOP CONTENT --- */
     .content-wrapper {
       display: flex;
-      flex-wrap: wrap; /* ✅ prevents text cutoff on narrow screens */
+      flex-wrap: wrap; /* allow wrap to avoid overlap on short/tall viewports */
       justify-content: space-between;
       align-items: flex-start;
       gap: 24px;
@@ -70,7 +73,7 @@
       position: fixed;
       left: 0; right: 0; bottom: 0;
       height: var(--bottom-bar-h);
-      padding: 0 40px 12px;
+      padding: 0 40px calc(12px + env(safe-area-inset-bottom, 0px));
       display: flex; justify-content: space-between; align-items: flex-end;
       background: transparent;
       z-index: 2000;
@@ -88,11 +91,23 @@
     }
     .corner-button img {
       max-width: 100%; height: auto;
+      /* scales down automatically with --bottom-bar-h */
       max-height: min(140px, calc(var(--bottom-bar-h) - 40px));
       transition: transform 0.3s ease;
       display: block;
     }
     .corner-button img:hover { transform: rotate(10deg) scale(1.1); }
+
+    /* Make labels smaller as height shrinks; hide at ultra-short heights */
+    @media (max-height: 520px) {
+      .corner-button-label, .button-label { font-size: 0.9em; }
+    }
+    @media (max-height: 420px) {
+      .corner-button-label, .button-label { font-size: 0.8em; }
+    }
+    @media (max-height: 360px) {
+      .corner-button-label, .button-label { display: none; }
+    }
 
     /* --- LIGHT TEXT THEME (white text + black shadow) --- */
     .theme-white { color: #ffffff; }
