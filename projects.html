@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Projects – Weston Kirk</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <style>
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Lora', serif;
       margin: 40px auto;
       line-height: 1.6;
-      padding: 0 20px;
-      background-color: #fff;
+      padding: 0 20px 60px;
       text-align: center;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+      background: url('background.png') center top / cover no-repeat fixed; /* ✅ unified background */
     }
 
     h1 {
-      color: #333;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+    }
+
+    p {
+      font-size: 1.05em;
     }
 
     .circle-container {
@@ -34,34 +47,59 @@
 
     .project-button img {
       max-height: 100px;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, filter 0.2s ease;
       cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }
 
     .project-button:hover img {
       transform: scale(1.05);
+      filter: brightness(1.1);
     }
 
     .project-title {
       margin-top: 6px;
       font-weight: bold;
       font-size: 0.9em;
-      color: #333;
+      color: #e6f0ff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     }
 
     .back-button {
       display: inline-block;
       margin-top: 40px;
       padding: 10px 20px;
-      background-color: #eee;
-      color: #333;
+      background-color: rgba(255,255,255,0.15);
+      color: #fff;
       text-decoration: none;
       border-radius: 8px;
-      transition: background-color 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .back-button:hover {
-      background-color: #ccc;
+      background-color: rgba(255,255,255,0.3);
+      transform: scale(1.05);
+    }
+
+    em {
+      color: #e6f0ff;
+    }
+
+    @media (max-width: 700px) {
+      .circle-container {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 24px;
+        justify-items: center;
+      }
+      .project-button {
+        position: static;
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -69,73 +107,67 @@
   <h1>Projects</h1>
   <p>Below are some of my recent research and projects.</p>
 
-<div class="circle-container">
+  <div class="circle-container">
 
-  <!-- 1: Top center (0°) -->
-  <a class="project-button" href="CWR%20Project.png" target="_blank"
-     style="top: 0%; left: 50%; transform: translate(-50%, 0);">
-    <img src="zizania_texana.png" style="max-height: 120px;" alt="Crop Wild Relatives Project" />
-    <div class="project-title">CWR Functional Diversity</div>
-  </a>
+    <!-- 1: Top center (0°) -->
+    <a class="project-button" href="CWR%20Project.png" target="_blank"
+       style="top: 0%; left: 50%; transform: translate(-50%, 0);">
+      <img src="zizania_texana.png" style="max-height: 120px;" alt="Crop Wild Relatives Project" />
+      <div class="project-title">CWR Functional Diversity</div>
+    </a>
 
-  <!-- 2: Top-right (45°) -->
-  <a class="project-button" href="CS_197_Final_Paper.pdf" target="_blank"
-     style="top: 15%; left: 85%; transform: translate(-50%, -50%);">
-    <img src="apollo_11_image.png" alt="Moonquake CNN Project" />
-    <div class="project-title">CNN for Moonquakes</div>
-  </a>
+    <!-- 2: Top-right (45°) -->
+    <a class="project-button" href="CS_197_Final_Paper.pdf" target="_blank"
+       style="top: 15%; left: 85%; transform: translate(-50%, -50%);">
+      <img src="apollo_11_image.png" alt="Moonquake CNN Project" />
+      <div class="project-title">CNN for Moonquakes</div>
+    </a>
 
-  <!-- 3: Right center (90°) -->
-  <a class="project-button" href="https://arcg.is/05XT0r1" target="_blank"
-     style="top: 50%; left: 100%; transform: translate(-50%, -50%);">
-    <img src="mountain_pink.png" alt="Zeltnera Mapping Project" />
-    <div class="project-title">Flower Color via Voronoi</div>
-  </a>
+    <!-- 3: Right center (90°) -->
+    <a class="project-button" href="https://arcg.is/05XT0r1" target="_blank"
+       style="top: 50%; left: 100%; transform: translate(-50%, -50%);">
+      <img src="mountain_pink.png" alt="Zeltnera Mapping Project" />
+      <div class="project-title">Flower Color via Voronoi</div>
+    </a>
 
-  <!-- 4: Bottom-right (135°) -->
-  <a class="project-button" href="EARTHSYS142_Remote_Sensing_of_Land_Final_Project_Report.pdf" target="_blank"
-     style="top: 85%; left: 85%; transform: translate(-50%, -50%);">
-    <img src="prairie.png" alt="Prairie Classification" />
-    <div class="project-title">Prairie Classification</div>
-  </a>
+    <!-- 4: Bottom-right (135°) -->
+    <a class="project-button" href="EARTHSYS142_Remote_Sensing_of_Land_Final_Project_Report.pdf" target="_blank"
+       style="top: 85%; left: 85%; transform: translate(-50%, -50%);">
+      <img src="prairie.png" alt="Prairie Classification" />
+      <div class="project-title">Prairie Classification</div>
+    </a>
 
-  <!-- 5: Bottom center (180°) -->
-  <a class="project-button" href="104_Optional_Project_Final_Report.pdf" target="_blank"
-     style="top: 100%; left: 50%; transform: translate(-50%, -100%);">
-    <img src="crabapple_flower.png" alt="Functional Uniqueness for CWR" />
-    <div class="project-title">Functional Uniqueness for CWR</div>
-  </a>
+    <!-- 5: Bottom center (180°) -->
+    <a class="project-button" href="104_Optional_Project_Final_Report.pdf" target="_blank"
+       style="top: 100%; left: 50%; transform: translate(-50%, -100%);">
+      <img src="crabapple_flower.png" alt="Functional Uniqueness for CWR" />
+      <div class="project-title">Functional Uniqueness for CWR</div>
+    </a>
 
-  <!-- 6: Bottom-left (225°) -->
-  <a class="project-button" href="Team29-milestone3-poster.pdf" target="_blank"
-     style="top: 85%; left: 15%; transform: translate(-50%, -50%);">
-    <img src="User Reporting Flow.png" alt="Moderator Flow Project" />
-    <div class="project-title">Moderator Flow</div>
-  </a>
+    <!-- 6: Bottom-left (225°) -->
+    <a class="project-button" href="Team29-milestone3-poster.pdf" target="_blank"
+       style="top: 85%; left: 15%; transform: translate(-50%, -50%);">
+      <img src="User Reporting Flow.png" alt="Moderator Flow Project" />
+      <div class="project-title">Moderator Flow</div>
+    </a>
 
-  <!-- 7: Left center (270°) -->
-  <a class="project-button" href="jwxie_wkirk copy.png" target="_blank"
-     style="top: 50%; left: 0%; transform: translate(-50%, -50%);">
-    <img src="lit_house.png" alt="CS 148 Final Project" />
-    <div class="project-title">CS 148 Final*</div>
-  </a>
+    <!-- 7: Left center (270°) -->
+    <a class="project-button" href="jwxie_wkirk copy.png" target="_blank"
+       style="top: 50%; left: 0%; transform: translate(-50%, -50%);">
+      <img src="lit_house.png" alt="CS 148 Final Project" />
+      <div class="project-title">CS 148 Final*</div>
+    </a>
 
-  <!-- 8: Top-left (315°) -->
-  <a class="project-button" href="A_Dry_Jacobs_Well.pdf" target="_blank"
-     style="top: 15%; left: 15%; transform: translate(-50%, -50%);">
-    <img src="water_crevasse.png" alt="Jacob's Well Hydro Study" />
-    <div class="project-title">A Dry Jacob’s Well</div>
-  </a>
-
-</div>
-
-
-  
-
+    <!-- 8: Top-left (315°) -->
+    <a class="project-button" href="A_Dry_Jacobs_Well.pdf" target="_blank"
+       style="top: 15%; left: 15%; transform: translate(-50%, -50%);">
+      <img src="water_crevasse.png" alt="Jacob's Well Hydro Study" />
+      <div class="project-title">A Dry Jacob’s Well</div>
+    </a>
   </div>
 
   <!-- Collaborator credit note -->
-  <p style="margin-top: 40px; font-size: 0.9em; color: #555;">
+  <p style="margin-top: 40px; font-size: 0.9em; color: #e6f0ff;">
     * <em>CS 148 Final</em> was completed in collaboration with Johnathan Xie.
   </p>
 
