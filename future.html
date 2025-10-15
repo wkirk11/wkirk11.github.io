@@ -1,60 +1,75 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Future Work – Weston Kirk</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Lora', serif;
-        max-width: 700px;
-        margin: 40px auto;
-        line-height: 1.6;
-        padding: 0 20px;
-        background-color: #fff;
-        text-align: left;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Future Work – Weston Kirk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-      h1 {
-        color: #333;
-      }
+    body {
+      font-family: 'Lora', serif;
+      max-width: 700px;
+      margin: 40px auto;
+      line-height: 1.6;
+      padding: 0 20px 60px;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+      background: url('background.png') center top / cover no-repeat fixed; /* ✅ unified background */
+    }
 
-      p {
-        margin-top: 20px;
-        font-size: 1.05em;
-      }
+    h1 {
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+    }
 
-      a.back {
-        display: inline-block;
-        margin-top: 30px;
-        padding: 10px 20px;
-        background-color: #eee;
-        color: #333;
-        text-decoration: none;
-        border-radius: 8px;
-      }
+    p {
+      margin-top: 20px;
+      font-size: 1.05em;
+    }
 
-      a.back:hover {
-        background-color: #ccc;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Research Experience and Future Work</h1>
-    
-    <p><strong>Daru Lab:</strong> Since September of 2023, I have been a part-time undergraduate researcher working with Dr. Barnabas Daru as a part of the Daru Lab, working on computational biogeography.
-      In December 2023, I was selected to attend the Biogeography R workshop in New Orleans, developing key domain-specific research skills. 
-      During Summer 2024, I was a part of the Biology Summer Undergraduate Research Program (BSURP) cohort, where I began a project examining
-      crop wild relatives. Namely, I helped to develop an algorithm which for a particular species, finds between 10 and 20 of its closest 
-      monophyletically-clustered relatives. We are aiming for publication in Late 2025.</p>
+    a.back {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: rgba(255,255,255,0.15);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-    <p><strong>STAIR Lab:</strong> In February 2025, I was awarded a CURIS Fellowship, and was matched with the STAIR Lab working with Brando Miranda and Dr. Sanmi Koyejo.
-      We are working on a project focused on LLM translation of code to formal languages, and establishing a benchmark dataset. I have started work with the lab
-      and will be joining full-time in June 2025 as part of the CURIS program.</p>
+    a.back:hover {
+      background-color: rgba(255,255,255,0.3);
+      transform: scale(1.05);
+    }
 
-    <p><strong>Research Aspirations:</strong> In the future, I intend to work in Geospatial AI research, blending theory with action to solve real-world problems. I hope to zero-in on
-      biodiversity, conservation, and land use problems using these methods.</p>
+    strong {
+      color: #e6f0ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Research Experience and Future Work</h1>
+  
+  <p><strong>Daru Lab:</strong> Since September of 2023, I have been a part-time undergraduate researcher working with Dr. Barnabas Daru as a part of the Daru Lab, focusing on computational biogeography.
+  In December 2023, I was selected to attend the Biogeography R Workshop in New Orleans, developing key domain-specific research skills. 
+  During Summer 2024, I was a part of the Biology Summer Undergraduate Research Program (BSURP) cohort, where I began a project examining
+  crop wild relatives. Namely, I helped develop an algorithm which, for a particular species, finds between 10 and 20 of its closest 
+  monophyletically-clustered relatives. We are aiming for publication in late 2025.</p>
 
-    <a class="back" href="index.html">&larr; Back to Home</a>
-  </body>
+  <p><strong>STAIR Lab:</strong> In February 2025, I was awarded a CURIS Fellowship and was matched with the STAIR Lab, working with Brando Miranda and Dr. Sanmi Koyejo.
+  We are working on a project focused on LLM translation of code to formal languages and establishing a benchmark dataset. I have started work with the lab
+  and will be joining full-time in June 2025 as part of the CURIS program.</p>
+
+  <p><strong>Research Aspirations:</strong> In the future, I intend to work in Geospatial AI research, blending theory with action to solve real-world problems. I hope to zero in on
+  biodiversity, conservation, and land-use problems using these methods.</p>
+
+  <a class="back" href="index.html">&larr; Back to Home</a>
+</body>
 </html>
