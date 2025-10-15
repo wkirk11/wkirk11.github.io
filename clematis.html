@@ -5,31 +5,43 @@
   <title>Iridescent Berry</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <style>
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Lora', serif;
       max-width: 700px;
       margin: 40px auto;
       line-height: 1.6;
-      padding: 0 20px;
-      background-color: #fff;
+      padding: 0 20px 60px;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+      background: url('background.png') center top / cover no-repeat fixed; /* ✅ same as main page */
     }
 
     h1 {
-      color: #333;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
     }
 
     a.back {
       display: inline-block;
       margin-top: 30px;
       padding: 10px 20px;
-      background-color: #eee;
-      color: #333;
+      background-color: rgba(255,255,255,0.15);
+      color: #fff;
       text-decoration: none;
       border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     a.back:hover {
-      background-color: #ccc;
+      background-color: rgba(255,255,255,0.3);
+      transform: scale(1.05);
     }
 
     .image-container {
@@ -40,6 +52,8 @@
     img {
       max-width: 100%;
       display: block;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
     }
 
     .shine-overlay {
@@ -72,7 +86,7 @@
   </style>
 </head>
 <body>
-  <h1>About me</h1>
+  <h1>Iridescent Berry</h1>
   <p>It looks like you clicked on the seeds of my favorite vine, Scarlet Leatherflower, which is endemic to my home state of Texas. I love to explore outside, landscape small projects, and play basketball.</p>
 
   <div class="image-container">
