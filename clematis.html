@@ -19,7 +19,7 @@
       padding: 0 20px 60px;
       color: #fff;
       text-shadow: 0 1px 3px rgba(0,0,0,0.45);
-      background: url('background.png') center top / cover no-repeat fixed; /* ✅ same as main page */
+      background: url('background.png') center top / cover no-repeat fixed;
     }
 
     h1 {
@@ -43,56 +43,11 @@
       background-color: rgba(255,255,255,0.3);
       transform: scale(1.05);
     }
-
-    .image-container {
-      position: relative;
-      display: inline-block;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-    }
-
-    .shine-overlay {
-      position: absolute;
-      top: 110px;  /* Adjust this to your berry */
-      left: 82px;  /* Adjust this to your berry */
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      pointer-events: auto;
-      background: linear-gradient(45deg,
-        #ff00cc,
-        #3333ff,
-        #00ffcc,
-        #ffff66,
-        #ff6600,
-        #ff00cc);
-      background-size: 400%;
-      mix-blend-mode: screen;
-      animation: shineMove 2s infinite linear;
-      transition: opacity 0.3s ease;
-      cursor: pointer;
-    }
-
-    @keyframes shineMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
   </style>
 </head>
 <body>
   <h1>Iridescent Berry</h1>
   <p>It looks like you clicked on the seeds of my favorite vine, Scarlet Leatherflower, which is endemic to my home state of Texas. I love to explore outside, landscape small projects, and play basketball.</p>
-
-  <div class="image-container">
-    <img src="Madrones/madrone_two_berries (1).png" alt="Texas Madrone">
-    <div class="shine-overlay" onclick="this.remove()"></div>
-  </div>
 
   <a class="back" href="index.html">&larr; Back to Home</a>
 </body>
