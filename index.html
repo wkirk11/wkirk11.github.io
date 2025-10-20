@@ -9,35 +9,29 @@
     :root { --bottom-bar-h: 200px; }                  /* default */
     @media (max-height: 700px) { :root { --bottom-bar-h: 160px; } }
     @media (max-height: 520px) { :root { --bottom-bar-h: 130px; } }
-    @media (max-height: 420px) { :root { --bottom-bar-h: 110px; } } /* new */
-    @media (max-height: 360px) { :root { --bottom-bar-h: 90px; } }   /* new */
+    @media (max-height: 420px) { :root { --bottom-bar-h: 110px; } }
+    @media (max-height: 360px) { :root { --bottom-bar-h: 90px; } }
 
     /* --- PAGE BACKGROUND --- */
-    html, body { min-height: 100%; } /* prevent top clipping on scroll */
+    html, body { min-height: 100%; }
     * { box-sizing: border-box; }
 
     body {
       font-family: 'Lora', serif;
       font-size: 1.5em;
       margin: 0;
-
-      /* Reserve space for fixed bottom bar + safe area */
       padding: 40px 40px calc(var(--bottom-bar-h) + env(safe-area-inset-bottom, 0px) + 20px);
-
       overflow-x: hidden;
-
-      /* background image, continuous, no parallax clipping issues */
       background: url('background.png') center top / cover no-repeat;
-      color: #111; /* default (overridden by .theme-white below) */
+      color: #111;
     }
 
-    /* Keep content above background */
     .content-wrapper, .bottom-bar { position: relative; z-index: 10; }
 
     /* --- TOP CONTENT --- */
     .content-wrapper {
       display: flex;
-      flex-wrap: wrap; /* allow wrap to avoid overlap on short/tall viewports */
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-start;
       gap: 24px;
@@ -47,7 +41,6 @@
     h1, h2 { margin: 0 0 12px; color: inherit; }
     p { margin: 0 0 12px; }
 
-    /* Readability without any white box */
     h1, h2, p, a, .corner-button-label, .button-label {
       text-shadow: 0 1px 1px rgba(255,255,255,0.0);
     }
@@ -64,25 +57,23 @@
       display: block;
     }
     .leaf-button img:hover { transform: scale(1.05); }
-    .button-label, .corner-button-label {
+    .button-label {
       text-align: center; margin-top: 10px; font-size: 1em; color: inherit; white-space: nowrap;
     }
 
-    /* --- BOTTOM FIXED BUTTONS (no fade) --- */
+    /* --- BOTTOM FIXED BUTTONS --- */
     .bottom-bar {
       position: fixed;
       left: 0; right: 0; bottom: 0;
       height: var(--bottom-bar-h);
       padding: 0 40px calc(12px + env(safe-area-inset-bottom, 0px));
-      display: flex; justify-content: space-between; align-items: flex-end;
+      display: flex; justify-content: center; align-items: flex-end;
       background: transparent;
       z-index: 2000;
       pointer-events: auto;
     }
     .bottom-bar .buttons {
-      width: 100%;
-      display: flex; justify-content: space-between; align-items: flex-end;
-      gap: 24px; flex-wrap: nowrap;
+      display: flex; justify-content: center; align-items: flex-end;
     }
 
     .corner-button {
@@ -91,14 +82,12 @@
     }
     .corner-button img {
       max-width: 100%; height: auto;
-      /* scales down automatically with --bottom-bar-h */
       max-height: min(140px, calc(var(--bottom-bar-h) - 40px));
       transition: transform 0.3s ease;
       display: block;
     }
     .corner-button img:hover { transform: rotate(10deg) scale(1.1); }
 
-    /* Make labels smaller as height shrinks; hide at ultra-short heights */
     @media (max-height: 520px) {
       .corner-button-label, .button-label { font-size: 0.9em; }
     }
@@ -109,7 +98,7 @@
       .corner-button-label, .button-label { display: none; }
     }
 
-    /* --- LIGHT TEXT THEME (white text + black shadow) --- */
+    /* --- LIGHT TEXT THEME --- */
     .theme-white { color: #ffffff; }
     .theme-white h1,
     .theme-white h2,
@@ -146,16 +135,11 @@
     </div>
   </div>
 
-  <!-- Fixed Bottom Buttons -->
+  <!-- Fixed Bottom Button -->
   <div class="bottom-bar">
     <div class="buttons">
-      <a class="corner-button clematis-button" href="clematis.html" title="Explore the Clematis">
-        <img id="clematisImage" src="clematis_seeds.png" alt="Clematis Button" />
-        <p class="corner-button-label">About Me</p>
-      </a>
-
       <a class="corner-button mystery-button" href="future.html" title="Future Work">
-        <img id="mysteryImage" src="milkweed_vine_bloom_2.png" alt="Mystery Button" />
+        <img id="mysteryImage" src="milkweed_vine_bloom_2.png" alt="Research Button" />
         <p class="corner-button-label">Research</p>
       </a>
     </div>
