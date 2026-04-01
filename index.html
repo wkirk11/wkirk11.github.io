@@ -72,6 +72,23 @@
       text-decoration: none;
     }
 
+    /* --- SMOKE TREE EASTER EGG --- */
+    .smoke-tree {
+      position: fixed;
+      bottom: 28%;
+      left: 38%;
+      z-index: 5;
+      pointer-events: auto;
+    }
+    .smoke-tree img {
+      height: 120px;
+      opacity: 0.82;
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      transition: opacity 0.3s ease;
+    }
+    .smoke-tree img:hover { opacity: 1; }
+
     /* --- LIGHT TEXT THEME --- */
     .theme-white { color: #ffffff; }
     .theme-white h1,
@@ -107,6 +124,11 @@
         </a>
       </div>
     </div>
+  </div>
+
+  <!-- Smoke tree easter egg, blended into horizon -->
+  <div class="smoke-tree">
+    <img src="images/smoke_tree_branch.png" alt="" title="Cotinus obovatus — my favorite tree" />
   </div>
 
   <!-- Flower button, bottom right, no label -->
