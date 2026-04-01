@@ -2,39 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Future Work – Weston Kirk</title>
+  <title>Projects – Weston Kirk</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      min-height: 100%;
-      margin: 0;
-      padding: 0;
-    }
+    html, body { min-height: 100%; margin: 0; padding: 0; }
 
     body {
       font-family: 'Lora', serif;
-      max-width: 700px;
-      margin: 40px auto;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
       line-height: 1.6;
-      padding: 0 20px 60px;
       color: #fff;
       text-shadow: 0 1px 3px rgba(0,0,0,0.45);
-      background: url('background.png') center top / cover no-repeat fixed; /* ✅ unified background */
+      background: url('background.png') center top / cover no-repeat fixed;
     }
 
-    h1 {
-      color: #fff;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+    h1 { margin: 0 0 32px; }
+
+    h2 {
+      margin: 40px 0 10px;
+      font-size: 1.15em;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 4px;
     }
 
-    p {
-      margin-top: 20px;
-      font-size: 1.05em;
+    .project-list { list-style: none; margin: 0; padding: 0; }
+
+    .project-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    a.back {
+    .project-item:last-child { border-bottom: none; }
+
+    .project-icon {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
+    }
+
+    .project-info { display: flex; flex-direction: column; gap: 2px; }
+
+    .project-title a {
+      color: #e6f0ff;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    .project-title a:hover { text-decoration: underline; }
+
+    .project-label {
+      font-size: 0.8em;
+      color: rgba(255,255,255,0.65);
+      text-shadow: none;
+    }
+
+    .back-button {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 48px;
       padding: 10px 20px;
       background-color: rgba(255,255,255,0.15);
       color: #fff;
@@ -43,33 +75,149 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.4);
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
-
-    a.back:hover {
+    .back-button:hover {
       background-color: rgba(255,255,255,0.3);
       transform: scale(1.05);
-    }
-
-    strong {
-      color: #e6f0ff;
     }
   </style>
 </head>
 <body>
-  <h1>Research Experience and Future Work</h1>
-  
-  <p><strong>Daru Lab:</strong> Since September of 2023, I have been a part-time undergraduate researcher working with Dr. Barnabas Daru as a part of the Daru Lab, focusing on computational biogeography.
-  In December 2023, I was selected to attend the Biogeography R Workshop in New Orleans, developing key domain-specific research skills. 
-  During Summer 2024, I was a part of the Biology Summer Undergraduate Research Program (BSURP) cohort, where I began a project examining
-  crop wild relatives. Namely, I helped develop an algorithm which, for a particular species, finds between 10 and 20 of its closest 
-  monophyletically-clustered relatives. We are aiming for publication in late 2025.</p>
 
-  <p><strong>STAIR Lab:</strong> In February 2025, I was awarded a CURIS Fellowship and was matched with the STAIR Lab, working with Brando Miranda and Dr. Sanmi Koyejo.
-  We are working on a project focused on LLM translation of code to formal languages and establishing a benchmark dataset. I have started work with the lab
-  and will be joining full-time in June 2025 as part of the CURIS program.</p>
+  <h1>Projects &amp; Research</h1>
 
-  <p><strong>Research Aspirations:</strong> In the future, I intend to work in Geospatial AI research, blending theory with action to solve real-world problems. I hope to zero in on
-  biodiversity, conservation, and land-use problems using these methods.</p>
+  <!-- ── RESEARCH ────────────────────────────────── -->
+  <h2>Research</h2>
+  <ul class="project-list">
 
-  <a class="back" href="index.html">&larr; Back to Home</a>
+    <li class="project-item">
+      <img class="project-icon" src="images/clematis_seeds.png" alt="VeriBench" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="https://openreview.net/forum?id=P7NUVF6wo4" target="_blank" rel="noopener">
+            VeriBench: End-to-End Formal Verification Benchmark for AI Code Generation in Lean 4
+          </a>
+        </div>
+        <div class="project-label">ICML AI for Math Workshop, 2025 · Nominated for Oral (Top 1%) · STAIR Lab</div>
+      </div>
+    </li>
+
+    <li class="project-item">
+      <img class="project-icon" src="images/zizania_texana.png" alt="CWR Research" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="docs/CWR%20Project.png" target="_blank" rel="noopener">
+            Crop Wild Relatives Biogeography
+          </a>
+        </div>
+        <div class="project-label">Daru Lab, Stanford Biology</div>
+      </div>
+    </li>
+
+  </ul>
+
+  <!-- ── CLASS PROJECTS ─────────────────────────── -->
+  <h2>Class Projects</h2>
+  <ul class="project-list">
+
+    <li class="project-item">
+      <img class="project-icon" src="images/leaf1.png" alt="Discrete Log" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="docs/Discrete_Log_Algorithms.pdf" target="_blank" rel="noopener">
+            A Comparison of Three Algorithms for the Discrete Log Problem
+          </a>
+        </div>
+        <div class="project-label">Math 110</div>
+      </div>
+    </li>
+
+    <li class="project-item">
+      <img class="project-icon" src="images/apollo_11_image.png" alt="Moonquake CNN" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="docs/CS_197_Final_Paper.pdf" target="_blank" rel="noopener">
+            Moonquake CNN Classifier
+          </a>
+        </div>
+        <div class="project-label">CS 197</div>
+      </div>
+    </li>
+
+    <li class="project-item">
+      <img class="project-icon" src="images/crabapple_flower.png" alt="Math 104" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="docs/104_Optional_Project_Final_Report.pdf" target="_blank" rel="noopener">
+            Functional Uniqueness for Crop Wild Relatives
+          </a>
+        </div>
+        <div class="project-label">Math 104</div>
+      </div>
+    </li>
+
+    <li class="project-item">
+      <img class="project-icon" src="images/mountain_pink.png" alt="Voronoi" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="https://arcg.is/05XT0r1" target="_blank" rel="noopener">
+            Flower Color Distribution via Voronoi Tessellation
+          </a>
+        </div>
+        <div class="project-label">Earthsys 144</div>
+      </div>
+    </li>
+
+    <li class="project-item">
+      <img class="project-icon" src="images/User Reporting Flow.png" alt="Moderator Flow" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="docs/Team29-milestone3-poster.pdf" target="_blank" rel="noopener">
+            Moderator Reporting Flow
+          </a>
+        </div>
+        <div class="project-label">CS 152</div>
+      </div>
+    </li>
+
+    <li class="project-item">
+      <img class="project-icon" src="images/water_crevasse.png" alt="Jacob's Well" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="docs/A_Dry_Jacobs_Well.pdf" target="_blank" rel="noopener">
+            A Dry Jacob's Well
+          </a>
+        </div>
+        <div class="project-label">CS 109</div>
+      </div>
+    </li>
+
+    <li class="project-item">
+      <img class="project-icon" src="images/prairie.png" alt="Prairie Classification" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="docs/EARTHSYS142_Remote_Sensing_of_Land_Final_Project_Report.pdf" target="_blank" rel="noopener">
+            Pixel-Based Classification of Prairie Remnants
+          </a>
+        </div>
+        <div class="project-label">Earthsys 142</div>
+      </div>
+    </li>
+
+    <li class="project-item">
+      <img class="project-icon" src="images/lit_house.png" alt="CS 148" />
+      <div class="project-info">
+        <div class="project-title">
+          <a href="docs/jwxie_wkirk%20copy.png" target="_blank" rel="noopener">
+            Final Render
+          </a>
+        </div>
+        <div class="project-label">CS 148 · with Johnathan Xie</div>
+      </div>
+    </li>
+
+  </ul>
+
+  <a class="back-button" href="index.html">&larr; Back to Home</a>
+
 </body>
 </html>
