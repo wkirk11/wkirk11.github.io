@@ -61,42 +61,31 @@
       text-align: center; margin-top: 10px; font-size: 1em; color: inherit; white-space: nowrap;
     }
 
-    /* --- BOTTOM FIXED BUTTONS --- */
+    /* --- BOTTOM CONTACT BAR --- */
     .bottom-bar {
       position: fixed;
       left: 0; right: 0; bottom: 0;
       height: var(--bottom-bar-h);
-      padding: 0 40px calc(12px + env(safe-area-inset-bottom, 0px));
-      display: flex; justify-content: center; align-items: flex-end;
+      padding: 0 40px calc(16px + env(safe-area-inset-bottom, 0px));
+      display: flex; align-items: flex-end;
       background: transparent;
       z-index: 2000;
       pointer-events: auto;
     }
-    .bottom-bar .buttons {
-      display: flex; justify-content: center; align-items: flex-end;
+    .contact-links {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+      align-items: center;
+      font-size: 0.75em;
     }
-
-    .corner-button {
-      display: flex; flex-direction: column; align-items: center;
-      margin: 10px; cursor: pointer;
+    .contact-links a, .contact-links span {
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      white-space: nowrap;
     }
-    .corner-button img {
-      max-width: 100%; height: auto;
-      max-height: min(140px, calc(var(--bottom-bar-h) - 40px));
-      transition: transform 0.3s ease;
-      display: block;
-    }
-    .corner-button img:hover { transform: rotate(10deg) scale(1.1); }
-
-    @media (max-height: 520px) {
-      .corner-button-label, .button-label { font-size: 0.9em; }
-    }
-    @media (max-height: 420px) {
-      .corner-button-label, .button-label { font-size: 0.8em; }
-    }
-    @media (max-height: 360px) {
-      .corner-button-label, .button-label { display: none; }
-    }
+    .contact-links a:hover { text-decoration: underline; }
 
     /* --- LIGHT TEXT THEME --- */
     .theme-white { color: #ffffff; }
@@ -120,28 +109,22 @@
         I'm an undergraduate at Stanford studying Earth Systems, Math, and Computer Science.
         Currently, I work in the STAIR Lab as an undergraduate researcher.
       </p>
-
-      <h2>Contact</h2>
-      <p><a href="wk_cv_october_2025.pdf" target="_blank" rel="noopener">View my CV (PDF)</a></p>
-      <p>wkirk 'at' stanford 'dot' edu</p>
-      <p><a href="https://www.linkedin.com/in/weston-kirk-5a880a244" target="_blank" rel="noopener">weston-kirk-5a880a244</a></p>
     </div>
 
     <div class="leaf-button">
-      <a href="projects.html" target="_blank" rel="noopener">
-        <img id="treeImage" src="images/smoke_tree_branch.png" alt="Enter site via leaf image" />
+      <a href="future.html">
+        <img id="researchImage" src="images/milkweed_vine_bloom_2.png" alt="Research Button" />
       </a>
-      <p class="button-label">Projects</p>
+      <p class="button-label">Research</p>
     </div>
   </div>
 
-  <!-- Fixed Bottom Button -->
+  <!-- Fixed Bottom Contact Bar -->
   <div class="bottom-bar">
-    <div class="buttons">
-      <a class="corner-button mystery-button" href="future.html" title="Future Work">
-        <img id="mysteryImage" src="images/milkweed_vine_bloom_2.png" alt="Research Button" />
-        <p class="corner-button-label">Research</p>
-      </a>
+    <div class="contact-links">
+      <a href="wk_cv_october_2025.pdf" target="_blank" rel="noopener">CV</a>
+      <span>wkirk 'at' stanford 'dot' edu</span>
+      <a href="https://www.linkedin.com/in/weston-kirk-5a880a244" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </body>
