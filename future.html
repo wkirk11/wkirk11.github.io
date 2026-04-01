@@ -42,24 +42,24 @@
     .project-item:last-child { border-bottom: none; }
 
     .project-icon {
-      width: 72px;
-      height: 72px;
+      width: 90px;
+      height: 90px;
       object-fit: contain;
       flex-shrink: 0;
       filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
     }
 
-    .project-info { display: flex; flex-direction: column; gap: 4px; }
+    .project-info { display: flex; flex-direction: column; gap: 5px; }
 
     .project-title a {
       color: #e6f0ff;
       text-decoration: none;
-      font-size: 1.1em;
+      font-size: 1.25em;
     }
     .project-title a:hover { text-decoration: underline; }
 
     .project-label {
-      font-size: 0.88em;
+      font-size: 0.95em;
       color: rgba(255,255,255,0.65);
       text-shadow: none;
     }
@@ -120,7 +120,7 @@
   <ul class="project-list">
 
     <li class="project-item">
-      <img class="project-icon" src="images/leaf1.png" alt="Discrete Log" />
+      <img class="project-icon" src="images/dlp_kangaroo.png" alt="Discrete Log" />
       <div class="project-info">
         <div class="project-title">
           <a href="docs/Discrete_Log_Algorithms.pdf" target="_blank" rel="noopener">
@@ -219,5 +219,6 @@
 
   <a class="back-button" href="index.html">&larr; Back to Home</a>
 
+  <script>localStorage.setItem('visitedProjects', 'true');</script>
 </body>
 </html>

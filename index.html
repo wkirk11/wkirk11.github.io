@@ -79,6 +79,7 @@
       left: 38%;
       z-index: 5;
       pointer-events: auto;
+      display: none;
     }
     .smoke-tree img {
       height: 120px;
@@ -130,6 +131,12 @@
   <div class="smoke-tree">
     <img src="images/smoke_tree_branch.png" alt="" title="Cotinus obovatus — my favorite tree" />
   </div>
+
+  <script>
+    if (localStorage.getItem('visitedProjects')) {
+      document.querySelector('.smoke-tree').style.display = 'block';
+    }
+  </script>
 
   <!-- Flower button, bottom right, no label -->
   <div class="leaf-button">
