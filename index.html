@@ -72,23 +72,29 @@
       text-decoration: none;
     }
 
-    /* --- SMOKE TREE EASTER EGG --- */
-    .smoke-tree {
+    /* --- HORIZON EASTER EGGS --- */
+    .horizon-plant {
       position: fixed;
-      bottom: 28%;
-      left: 38%;
       z-index: 5;
       pointer-events: auto;
       display: none;
     }
-    .smoke-tree img {
-      height: 120px;
-      opacity: 0.82;
+    .horizon-plant img {
+      opacity: 0.85;
       mix-blend-mode: multiply;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
       transition: opacity 0.3s ease;
     }
-    .smoke-tree img:hover { opacity: 1; }
+    .horizon-plant img:hover { opacity: 1; }
+
+    .smoke-tree  { bottom: 29%; left: 4%; }
+    .smoke-tree img  { height: 70px; }
+
+    .madrone     { bottom: 29%; right: 4%; }
+    .madrone img     { height: 80px; }
+
+    .mtn-pink    { bottom: 27%; left: 48%; }
+    .mtn-pink img    { height: 55px; }
 
     /* --- LIGHT TEXT THEME --- */
     .theme-white { color: #ffffff; }
@@ -127,14 +133,20 @@
     </div>
   </div>
 
-  <!-- Smoke tree easter egg, blended into horizon -->
-  <div class="smoke-tree">
+  <!-- Horizon easter eggs, visible after visiting projects page -->
+  <div class="horizon-plant smoke-tree">
     <img src="images/smoke_tree_branch.png" alt="" title="Cotinus obovatus — my favorite tree" />
+  </div>
+  <div class="horizon-plant madrone">
+    <img src="images/madrone_two_berries.png" alt="" title="Arbutus menziesii — Pacific madrone" />
+  </div>
+  <div class="horizon-plant mtn-pink">
+    <img src="images/mountain_pink.png" alt="" title="Centaurium beyrichii — mountain pink" />
   </div>
 
   <script>
     if (localStorage.getItem('visitedProjects')) {
-      document.querySelector('.smoke-tree').style.display = 'block';
+      document.querySelectorAll('.horizon-plant').forEach(el => el.style.display = 'block');
     }
   </script>
 
