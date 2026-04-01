@@ -6,11 +6,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet" />
   <style>
     /* --- Responsive bottom bar size --- */
-    :root { --bottom-bar-h: 200px; }                  /* default */
-    @media (max-height: 700px) { :root { --bottom-bar-h: 160px; } }
-    @media (max-height: 520px) { :root { --bottom-bar-h: 130px; } }
-    @media (max-height: 420px) { :root { --bottom-bar-h: 110px; } }
-    @media (max-height: 360px) { :root { --bottom-bar-h: 90px; } }
+    :root { --bottom-bar-h: 260px; }
+    @media (max-height: 700px) { :root { --bottom-bar-h: 200px; } }
+    @media (max-height: 520px) { :root { --bottom-bar-h: 160px; } }
+    @media (max-height: 420px) { :root { --bottom-bar-h: 130px; } }
 
     /* --- PAGE BACKGROUND --- */
     html, body { min-height: 100%; }
@@ -50,7 +49,7 @@
 
     /* --- PROJECT IMAGE BUTTON --- */
     .leaf-button img {
-      max-height: 280px;
+      max-height: 140px;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -75,9 +74,9 @@
     .contact-links {
       display: flex;
       flex-direction: row;
-      gap: 32px;
+      gap: 40px;
       align-items: center;
-      font-size: 0.75em;
+      font-size: 1em;
     }
     .contact-links a, .contact-links span {
       color: #fff;
