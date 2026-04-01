@@ -23,11 +23,6 @@
 
     /* --- TOP CONTENT --- */
     .content-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 24px;
       position: relative;
       z-index: 10;
     }
@@ -39,18 +34,22 @@
     a { color: #0a3ab9; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* --- RESEARCH IMAGE BUTTON --- */
+    /* --- FLOWER BUTTON (bottom right, no label) --- */
+    .leaf-button {
+      position: fixed;
+      bottom: 30px;
+      right: 40px;
+      z-index: 2000;
+    }
     .leaf-button img {
       max-height: 140px;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s ease;
       display: block;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
     }
     .leaf-button img:hover { transform: scale(1.05); }
-    .button-label {
-      text-align: center; margin-top: 10px; font-size: 1em; color: inherit; white-space: nowrap;
-    }
 
     /* --- ICON ROW --- */
     .icon-bar {
@@ -78,8 +77,7 @@
     .theme-white h1,
     .theme-white h2,
     .theme-white p,
-    .theme-white a,
-    .theme-white .button-label {
+    .theme-white a {
       text-shadow: 0 1px 3px rgba(0,0,0,0.45);
     }
     .theme-white a { color: #e6f0ff; }
@@ -92,6 +90,7 @@
       <h1>Weston Kirk</h1>
       <p>
         I am a student at Stanford studying Mathematics (BS), Earth Systems (BS), and Computer Science (MS).
+        Click on the flower to see some of my projects and research.
       </p>
       <div class="icon-bar">
         <a href="wk_cv_october_2025.pdf" target="_blank" rel="noopener" title="CV">
@@ -108,13 +107,13 @@
         </a>
       </div>
     </div>
+  </div>
 
-    <div class="leaf-button">
-      <a href="future.html">
-        <img src="images/milkweed_vine_bloom_2.png" alt="Research Button" />
-      </a>
-      <p class="button-label">Research</p>
-    </div>
+  <!-- Flower button, bottom right, no label -->
+  <div class="leaf-button">
+    <a href="future.html">
+      <img src="images/milkweed_vine_bloom_2.png" alt="Projects and Research" />
+    </a>
   </div>
 
 </body>
